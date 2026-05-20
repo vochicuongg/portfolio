@@ -5,6 +5,7 @@
 
 // ===================== 1. DARK / LIGHT MODE =====================
 const html = document.documentElement;
+let currentLang = 'vi';
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
 
@@ -80,7 +81,7 @@ document.addEventListener('click', (e) => {
 const typingEl = document.getElementById('typingText');
 
 // Words to cycle through
-const words = [
+const words_vi = [
     'Lập trình viên Flutter',
     'Web Developer',
     'Mobile Developer',
@@ -88,6 +89,25 @@ const words = [
     'UI/UX Coder',
     'Network Engineer',
 ];
+
+const words_en = [
+    'Flutter Developer',
+    'Web Developer',
+    'Mobile Developer',
+    'Wear OS Enthusiast',
+    'UI/UX Coder',
+    'Network Engineer',
+];
+
+let words = words_vi;
+
+function updateTypingWords(lang) {
+    words = lang === 'vi' ? words_vi : words_en;
+    // Reset typing animation index to start fresh on language switch
+    wordIndex = 0;
+    charIndex = 0;
+    isDeleting = false;
+}
 
 let wordIndex = 0;
 let charIndex = 0;
@@ -209,24 +229,24 @@ contactForm.addEventListener('submit', async (e) => {
     const message = document.getElementById('message').value.trim();
 
     if (!name || !email || !subject || !message) {
-        showFormStatus('Vui lòng điền đầy đủ thông tin!', 'error');
+        showFormStatus(translations[currentLang].status_empty, 'error');
         return;
     }
 
     if (!isValidEmail(email)) {
-        showFormStatus('Email không hợp lệ. Vui lòng kiểm tra lại!', 'error');
+        showFormStatus(translations[currentLang].status_invalid_email, 'error');
         return;
     }
 
     // reCAPTCHA validation
     const recaptchaResponse = grecaptcha.getResponse();
     if (recaptchaResponse.length === 0) {
-        showFormStatus('Vui lòng xác nhận bạn không phải là robot!', 'error');
+        showFormStatus(translations[currentLang].status_recaptcha, 'error');
         return;
     }
 
     // Send email using FormSubmit AJAX
-    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...';
+    submitBtn.innerHTML = translations[currentLang].status_sending;
     submitBtn.disabled = true;
 
     try {
@@ -245,19 +265,19 @@ contactForm.addEventListener('submit', async (e) => {
         });
 
         if (response.ok) {
-            showFormStatus('✅ Tin nhắn đã được gửi! Tôi sẽ phản hồi sớm nhất có thể.', 'success');
+            showFormStatus(translations[currentLang].status_success, 'success');
             contactForm.reset();
             if (typeof grecaptcha !== 'undefined') {
                 grecaptcha.reset();
             }
         } else {
-            showFormStatus('❌ Có lỗi xảy ra trong quá trình gửi, vui lòng thử lại sau!', 'error');
+            showFormStatus(translations[currentLang].status_error, 'error');
         }
     } catch (error) {
-        showFormStatus('❌ Lỗi kết nối. Không thể gửi tin nhắn!', 'error');
+        showFormStatus(translations[currentLang].status_connection_error, 'error');
     }
 
-    submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Gửi tin nhắn';
+    submitBtn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> <span data-i18n="contact_btn_submit">${translations[currentLang].contact_btn_submit}</span>`;
     submitBtn.disabled = false;
 });
 
@@ -365,7 +385,92 @@ bottomNavLinks.forEach(link => {
 // Hook bottom nav update to scroll
 window.addEventListener('scroll', updateBottomNav, { passive: true });
 
+// ===================== 15. MULTI-LANGUAGE (i18n) ENGINE =====================
+const langToggle = document.getElementById('langToggle');
+
+// Detect device language
+function detectDeviceLanguage() {
+    // Check if there is a saved preference
+    const savedLang = localStorage.getItem('language');
+    if (savedLang === 'vi' || savedLang === 'en') {
+        return savedLang;
+    }
+    
+    // Otherwise, check navigator languages
+    const browserLang = (navigator.language || navigator.userLanguage || 'vi').toLowerCase();
+    if (browserLang.startsWith('vi')) {
+        return 'vi';
+    }
+    return 'en';
+}
+
+// Function to change/set language
+function setLanguage(lang) {
+    if (!translations[lang]) return;
+    
+    currentLang = lang;
+    localStorage.setItem('language', lang);
+    html.setAttribute('lang', lang);
+    
+    // Update active state of language switcher button
+    if (langToggle) {
+        langToggle.textContent = lang === 'vi' ? 'VI' : 'EN';
+    }
+    
+    // Update elements with data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+        }
+    });
+    
+    // Update placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang][key]) {
+            el.setAttribute('placeholder', translations[lang][key]);
+        }
+    });
+    
+    // Update tooltips / titles
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+        const key = el.getAttribute('data-i18n-title');
+        if (translations[lang][key]) {
+            el.setAttribute('title', translations[lang][key]);
+        }
+    });
+    
+    // Update SEO meta tags & Title
+    if (translations[lang].page_title) {
+        document.title = translations[lang].page_title;
+    }
+    
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && translations[lang].meta_description) {
+        metaDesc.setAttribute('content', translations[lang].meta_description);
+    }
+    
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords && translations[lang].meta_keywords) {
+        metaKeywords.setAttribute('content', translations[lang].meta_keywords);
+    }
+    
+    // Update typing words source
+    updateTypingWords(lang);
+}
+
+// Toggle language event listener
+if (langToggle) {
+    langToggle.addEventListener('click', () => {
+        const nextLang = currentLang === 'vi' ? 'en' : 'vi';
+        setLanguage(nextLang);
+    });
+}
+
 // ===================== INIT =====================
+const initLang = detectDeviceLanguage();
+setLanguage(initLang);
 updateActiveNavLink();
 updateBottomNav();
 toggleBackToTop();

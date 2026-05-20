@@ -351,6 +351,18 @@ textarea {
   transform: rotate(20deg);
 }
 
+.lang-btn {
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.theme-btn.lang-btn:hover {
+  transform: translateY(-2px);
+}
+
+
 /* Hamburger */
 .hamburger {
   display: none;

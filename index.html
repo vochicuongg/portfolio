@@ -21,7 +21,7 @@
 
     <!-- Icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
+    <link rel="icon" type="image/webp" href="/assets/images/avatar/avatar.webp" />
     <link rel="stylesheet" href="style.css" />
 
     <!-- Google reCAPTCHA -->
@@ -40,14 +40,19 @@
 
             <!-- Desktop links -->
             <ul class="nav-links" id="navLinks">
-                <li><a href="#about" class="nav-link">Về tôi</a></li>
-                <li><a href="#skills" class="nav-link">Kỹ năng</a></li>
-                <li><a href="#projects" class="nav-link">Dự án</a></li>
-                <li><a href="#freelance" class="nav-link">Khách hàng</a></li>
-                <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav_about">Về tôi</a></li>
+                <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Kỹ năng</a></li>
+                <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Dự án</a></li>
+                <li><a href="#freelance" class="nav-link" data-i18n="nav_freelance">Khách hàng</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Liên hệ</a></li>
             </ul>
 
             <div class="nav-actions">
+                <!-- Language switcher -->
+                <button id="langToggle" class="theme-btn lang-btn" aria-label="Chuyển đổi ngôn ngữ">
+                    VI
+                </button>
+
                 <!-- Dark / Light toggle -->
                 <button id="themeToggle" class="theme-btn" aria-label="Chuyển đổi giao diện">
                     <i class="fa-solid fa-moon" id="themeIcon"></i>
@@ -63,11 +68,11 @@
         <!-- Mobile drawer -->
         <div class="mobile-menu" id="mobileMenu">
             <ul>
-                <li><a href="#about" class="mobile-link">Về tôi</a></li>
-                <li><a href="#skills" class="mobile-link">Kỹ năng</a></li>
-                <li><a href="#projects" class="mobile-link">Dự án</a></li>
-                <li><a href="#freelance" class="mobile-link">Khách hàng</a></li>
-                <li><a href="#contact" class="mobile-link">Liên hệ</a></li>
+                <li><a href="#about" class="mobile-link" data-i18n="nav_about">Về tôi</a></li>
+                <li><a href="#skills" class="mobile-link" data-i18n="nav_skills">Kỹ năng</a></li>
+                <li><a href="#projects" class="mobile-link" data-i18n="nav_projects">Dự án</a></li>
+                <li><a href="#freelance" class="mobile-link" data-i18n="nav_freelance">Khách hàng</a></li>
+                <li><a href="#contact" class="mobile-link" data-i18n="nav_contact">Liên hệ</a></li>
             </ul>
         </div>
     </header>
@@ -89,24 +94,24 @@
                     <!-- Greeting badge -->
                     <div class="hero-badge reveal">
                         <span class="badge-dot"></span>
-                        Sẵn sàng nhận dự án mới
+                        <span data-i18n="hero_badge">Sẵn sàng nhận dự án mới</span>
                     </div>
 
                     <h1 class="hero-title reveal">
-                        Xin chào, tôi là<br />
-                        <span class="gradient-text">Võ Chí Cường</span>
+                        <span data-i18n="hero_greeting">Xin chào, tôi là</span><br />
+                        <span class="gradient-text" data-i18n="hero_name">Võ Chí Cường</span>
                     </h1>
 
                     <!-- Typing effect subtitle -->
                     <p class="hero-subtitle reveal">
-                        <span class="static-text">Tôi là một </span>
+                        <span class="static-text" data-i18n="hero_role_static">Tôi là một </span>
                         <span class="typing-wrapper">
                             <span id="typingText" class="typing-text"></span>
                             <span class="cursor">|</span>
                         </span>
                     </p>
 
-                    <p class="hero-desc reveal">
+                    <p class="hero-desc reveal" data-i18n="hero_desc">
                         Đam mê xây dựng các ứng dụng mang tính ứng dụng cao, từ nền tảng
                         Web đến Mobile và Wear OS. Luôn hướng tới trải nghiệm người dùng
                         mượt mà và hiệu suất tối ưu.
@@ -116,11 +121,11 @@
                     <div class="hero-cta reveal">
                         <a href="#projects" class="btn btn-primary">
                             <i class="fa-solid fa-rocket"></i>
-                            Xem dự án
+                            <span data-i18n="hero_btn_projects">Xem dự án</span>
                         </a>
                         <a href="/assets/documents/VoChiCuongCV.pdf" download class="btn btn-outline">
                             <i class="fa-solid fa-download"></i>
-                            Tải CV
+                            <span data-i18n="hero_btn_cv">Tải CV</span>
                         </a>
                     </div>
 
@@ -128,17 +133,17 @@
                     <div class="hero-stats reveal">
                         <div class="stat-item">
                             <span class="stat-num">4+</span>
-                            <span class="stat-label">Dự án nổi bật</span>
+                            <span class="stat-label" data-i18n="hero_stat_projects">Dự án nổi bật</span>
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat-item">
                             <span class="stat-num">1+</span>
-                            <span class="stat-label">Năm kinh nghiệm</span>
+                            <span class="stat-label" data-i18n="hero_stat_experience">Năm kinh nghiệm</span>
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat-item">
                             <span class="stat-num">5+</span>
-                            <span class="stat-label">Công nghệ</span>
+                            <span class="stat-label" data-i18n="hero_stat_tech">Công nghệ</span>
                         </div>
                     </div>
                 </div>
@@ -177,7 +182,7 @@
                 <div class="scroll-mouse">
                     <div class="scroll-wheel"></div>
                 </div>
-                <span>Cuộn xuống</span>
+                <span data-i18n="hero_scroll">Cuộn xuống</span>
             </div>
         </section>
 
@@ -185,8 +190,8 @@
         <section id="about" class="section">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-tag">01. Giới thiệu</span>
-                    <h2 class="section-title">Về <span class="gradient-text">tôi</span></h2>
+                    <span class="section-tag" data-i18n="about_tag">01. Giới thiệu</span>
+                    <h2 class="section-title" data-i18n="about_title">Về <span class="gradient-text">tôi</span></h2>
                 </div>
 
                 <div class="about-grid">
@@ -209,38 +214,44 @@
 
                     <!-- Text content -->
                     <div class="about-text reveal">
-                        <h3 class="about-name">Võ Chí Cường</h3>
+                        <h3 class="about-name" data-i18n="about_name">Võ Chí Cường</h3>
                         <p class="about-role">
                             <i class="fa-solid fa-graduation-cap"></i>
-                            Sinh viên năm 4 · Ngành An Toàn Thông Tin · Lập trình viên Web & Mobile
+                            <span data-i18n="about_role">Sinh viên năm 4 · Ngành An Toàn Thông Tin · Lập trình viên Web
+                                & Mobile</span>
                         </p>
-                        <p class="about-bio">
-                            Tôi là sinh viên năm 4 chuyên ngành An Toàn Thông Tin, với niềm đam mê mãnh liệt vào việc
+                        <p class="about-bio" data-i18n="about_bio_1">
+                            Tôi là sinh viên năm 4 chuyên ngành An Toàn Thông Tin, với niềm đamêm mãnh liệt vào việc
                             phát triển các ứng dụng thực tế và bảo mật hệ thống. Từ những trang web responsive đến ứng
                             dụng Flutter chạy
                             trên Android và Wear OS, tôi luôn tìm cách mang lại trải nghiệm tốt nhất.
                         </p>
-                        <p class="about-bio">
+                        <p class="about-bio" data-i18n="about_bio_2">
                             Ngoài lập trình, tôi còn quan tâm đến hạ tầng mạng và DevOps — từ cấu hình pfSense
                             high-availability đến triển khai ứng dụng với Docker và Render.
                         </p>
 
                         <div class="about-info-grid">
                             <div class="info-item">
-                                <span class="info-label"><i class="fa-solid fa-location-dot"></i> Vị trí</span>
-                                <span class="info-val">Hồ Chí Minh, Việt Nam</span>
+                                <span class="info-label"><i class="fa-solid fa-location-dot"></i> <span
+                                        data-i18n="about_label_location">Vị trí</span></span>
+                                <span class="info-val" data-i18n="about_val_location">Hồ Chí Minh, Việt Nam</span>
                             </div>
                             <div class="info-item">
-                                <span class="info-label"><i class="fa-solid fa-envelope"></i> Email</span>
+                                <span class="info-label"><i class="fa-solid fa-envelope"></i> <span
+                                        data-i18n="about_label_email">Email</span></span>
                                 <span class="info-val">cuong.vochi0411@gmail.com</span>
                             </div>
                             <div class="info-item">
-                                <span class="info-label"><i class="fa-solid fa-briefcase"></i> Trạng thái</span>
-                                <span class="info-val status-available">Sinh viên năm 04</span>
+                                <span class="info-label"><i class="fa-solid fa-briefcase"></i> <span
+                                        data-i18n="about_label_status">Trạng thái</span></span>
+                                <span class="info-val status-available" data-i18n="about_val_status">Sinh viên năm
+                                    04</span>
                             </div>
                             <div class="info-item">
-                                <span class="info-label"><i class="fa-solid fa-language"></i> Ngôn ngữ</span>
-                                <span class="info-val">Tiếng Việt, Tiếng Anh</span>
+                                <span class="info-label"><i class="fa-solid fa-language"></i> <span
+                                        data-i18n="about_label_language">Ngôn ngữ</span></span>
+                                <span class="info-val" data-i18n="about_val_language">Tiếng Việt, Tiếng Anh</span>
                             </div>
                         </div>
                     </div>
@@ -252,8 +263,9 @@
         <section id="skills" class="section section-alt">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-tag">02. Kỹ năng</span>
-                    <h2 class="section-title">Chuyên <span class="gradient-text">môn</span></h2>
+                    <span class="section-tag" data-i18n="skills_tag">02. Kỹ năng</span>
+                    <h2 class="section-title" data-i18n="skills_title">Chuyên <span class="gradient-text">môn</span>
+                    </h2>
                 </div>
 
                 <div class="skills-grid">
@@ -375,9 +387,10 @@
         <section id="projects" class="section">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-tag">03. Dự án</span>
-                    <h2 class="section-title">Dự án <span class="gradient-text">nổi bật</span></h2>
-                    <p class="section-sub">Một số dự án tôi đã xây dựng và đang phát triển</p>
+                    <span class="section-tag" data-i18n="projects_tag">03. Dự án</span>
+                    <h2 class="section-title" data-i18n="projects_title">Dự án <span class="gradient-text">nổi
+                            bật</span></h2>
+                    <p class="section-sub" data-i18n="projects_sub">Một số dự án tôi đã xây dựng và đang phát triển</p>
                 </div>
 
                 <div class="projects-grid">
@@ -398,8 +411,8 @@
                             </div>
                         </div>
                         <div class="project-body">
-                            <h3 class="project-title">VFinance</h3>
-                            <p class="project-desc">
+                            <h3 class="project-title" data-i18n="project_vfinance_title">VFinance</h3>
+                            <p class="project-desc" data-i18n="project_vfinance_desc">
                                 Ứng dụng quản lý tài chính cá nhân đồng bộ trên Android & Wear OS (Galaxy Watch).
                                 Giao diện trực quan, đồng bộ dữ liệu thời gian thực, Widget & Complication/Tile cho Wear
                                 OS.
@@ -413,10 +426,10 @@
                             <div class="project-actions">
                                 <a href="https://github.com/vochicuongg/QuanLyChiTieu_WearOS" target="_blank"
                                     class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i>
-                                    Source WearOS</a>
+                                    <span data-i18n="project_vfinance_btn_wear">Source WearOS</span></a>
                                 <a href="https://github.com/vochicuongg/QuanLyChiTieu_Android" target="_blank"
                                     class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i>
-                                    Source Android</a>
+                                    <span data-i18n="project_vfinance_btn_android">Source Android</span></a>
                             </div>
                         </div>
                     </article>
@@ -435,8 +448,8 @@
                             </div>
                         </div>
                         <div class="project-body">
-                            <h3 class="project-title">Xe Máy Ngọc Mười</h3>
-                            <p class="project-desc">
+                            <h3 class="project-title" data-i18n="project_xmnm_title">Xe Máy Ngọc Mười</h3>
+                            <p class="project-desc" data-i18n="project_xmnm_desc">
                                 Trang web chính thức (Landing page & Catalog) cho cửa hàng xe máy.
                                 SEO tối ưu, tốc độ cao, đa ngôn ngữ, UI/UX hiện đại.
                             </p>
@@ -449,9 +462,10 @@
                             <div class="project-actions">
                                 <a href="https://github.com/vochicuongg/xemayngocmuoi-official"
                                     class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i>
-                                    Source</a>
+                                    <span data-i18n="project_xmnm_btn_source">Source</span></a>
                                 <a href="https://xemayngocmuoi.com" target="_blank" class="btn btn-sm btn-primary"><i
-                                        class="fa-solid fa-globe"></i> Live Site</a>
+                                        class="fa-solid fa-globe"></i> <span data-i18n="project_xmnm_btn_live">Live
+                                        Site</span></a>
                             </div>
                         </div>
                     </article>
@@ -470,8 +484,8 @@
                             </div>
                         </div>
                         <div class="project-body">
-                            <h3 class="project-title">Trợ lý ảo VHU</h3>
-                            <p class="project-desc">
+                            <h3 class="project-title" data-i18n="project_vhu_title">Trợ lý ảo VHU</h3>
+                            <p class="project-desc" data-i18n="project_vhu_desc">
                                 Chatbot hỗ trợ sinh viên trường ĐH Văn Hiến tra cứu thông tin,
                                 thời khóa biểu tự động. Triển khai trên Render.
                             </p>
@@ -482,7 +496,8 @@
                             </div>
                             <div class="project-actions">
                                 <a href="https://github.com/vochicuong/Tro-ly-VHU" target="_blank"
-                                    class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> Source</a>
+                                    class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i> <span
+                                        data-i18n="project_vhu_btn_source">Source</span></a>
                             </div>
                         </div>
                     </article>
@@ -501,8 +516,9 @@
                             </div>
                         </div>
                         <div class="project-body">
-                            <h3 class="project-title">Hệ thống mạng High-Availability</h3>
-                            <p class="project-desc">
+                            <h3 class="project-title" data-i18n="project_pfsense_title">Hệ thống mạng High-Availability
+                            </h3>
+                            <p class="project-desc" data-i18n="project_pfsense_desc">
                                 Xây dựng hệ thống mạng dự phòng với pfSense, đảm bảo tính sẵn sàng cao,
                                 ứng phó sự cố mạng không gián đoạn dịch vụ.
                             </p>
@@ -513,7 +529,7 @@
                             </div>
                             <div class="project-actions">
                                 <a href="#" class="btn btn-sm btn-outline"><i class="fa-brands fa-github"></i>
-                                    Source</a>
+                                    <span data-i18n="project_pfsense_btn_source">Source</span></a>
                             </div>
                         </div>
                     </article>
@@ -526,9 +542,11 @@
         <section id="freelance" class="section section-alt">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-tag">04. Khách hàng Freelance</span>
-                    <h2 class="section-title">Dự án <span class="gradient-text">thực tế</span></h2>
-                    <p class="section-sub">Các website thương mại tôi đã phát triển cho khách hàng</p>
+                    <span class="section-tag" data-i18n="freelance_tag">04. Khách hàng Freelance</span>
+                    <h2 class="section-title" data-i18n="freelance_title">Dự án <span class="gradient-text">thực
+                            tế</span></h2>
+                    <p class="section-sub" data-i18n="freelance_sub">Các website thương mại tôi đã phát triển cho khách
+                        hàng</p>
                 </div>
 
                 <div class="freelance-grid">
@@ -538,10 +556,12 @@
                             <img src="/assets/images/brands/xemayngocmuoi.webp" alt="Xe Máy Ngọc Mười">
                         </div>
                         <h3 class="freelance-title">Xe Máy Ngọc Mười</h3>
-                        <p class="freelance-desc">Website giới thiệu và danh mục sản phẩm cửa hàng xe máy. Tối ưu hóa
+                        <p class="freelance-desc" data-i18n="freelance_xmnm_desc">Website giới thiệu và danh mục sản
+                            phẩm cửa hàng xe máy. Tối ưu hóa
                             SEO và tốc độ tải trang.</p>
                         <a href="https://www.xemayngocmuoi.com/" target="_blank" class="freelance-link"><i
-                                class="fa-solid fa-arrow-up-right-from-square"></i> Xem Website</a>
+                                class="fa-solid fa-arrow-up-right-from-square"></i> <span
+                                data-i18n="freelance_btn_view">Xem Website</span></a>
                     </div>
 
                     <!-- Client 2 -->
@@ -550,10 +570,12 @@
                             <img src="/assets/images/brands/mrben.webp" alt="Mr Ben Jeep Tours">
                         </div>
                         <h3 class="freelance-title">Mr Ben Jeep Tours</h3>
-                        <p class="freelance-desc">Nền tảng đặt tour xe Jeep đa ngôn ngữ du lịch, tập trung vào UX/UI và
+                        <p class="freelance-desc" data-i18n="freelance_mrben_desc">Nền tảng đặt tour xe Jeep đa ngôn ngữ
+                            du lịch, tập trung vào UX/UI và
                             tỷ lệ chuyển đổi khách hàng.</p>
                         <a href="https://www.mrbenjeeptours.com/" target="_blank" class="freelance-link"><i
-                                class="fa-solid fa-arrow-up-right-from-square"></i> Xem Website</a>
+                                class="fa-solid fa-arrow-up-right-from-square"></i> <span
+                                data-i18n="freelance_btn_view">Xem Website</span></a>
                     </div>
 
                     <!-- Client 3 -->
@@ -562,10 +584,12 @@
                             <img src="/assets/images/brands/mrlee.webp" alt="Mr Thanh Lee Travel">
                         </div>
                         <h3 class="freelance-title">Mr Thanh Lee Travel</h3>
-                        <p class="freelance-desc">Hệ thống website đặt vé tour và dịch vụ du lịch chuyên nghiệp, thiết
+                        <p class="freelance-desc" data-i18n="freelance_mrlee_desc">Hệ thống website đặt vé tour và dịch
+                            vụ du lịch chuyên nghiệp, thiết
                             kế thu hút, dễ sử dụng.</p>
                         <a href="https://mrthanhleetravel.com/" target="_blank" class="freelance-link"><i
-                                class="fa-solid fa-arrow-up-right-from-square"></i> Xem Website</a>
+                                class="fa-solid fa-arrow-up-right-from-square"></i> <span
+                                data-i18n="freelance_btn_view">Xem Website</span></a>
                     </div>
                 </div>
             </div>
@@ -575,9 +599,10 @@
         <section id="contact" class="section">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-tag">05. Liên hệ</span>
-                    <h2 class="section-title">Kết nối <span class="gradient-text">cùng tôi</span></h2>
-                    <p class="section-sub">Có dự án thú vị? Hãy liên hệ với tôi!</p>
+                    <span class="section-tag" data-i18n="contact_tag">05. Liên hệ</span>
+                    <h2 class="section-title" data-i18n="contact_title">Kết nối <span class="gradient-text">cùng
+                            tôi</span></h2>
+                    <p class="section-sub" data-i18n="contact_sub">Có dự án thú vị? Hãy liên hệ với tôi!</p>
                 </div>
 
                 <div class="contact-grid">
@@ -630,22 +655,25 @@
                     <form class="contact-form reveal" id="contactForm" novalidate>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="name">Họ và tên</label>
-                                <input type="text" id="name" name="name" placeholder="Nguyễn Văn A" required />
+                                <label for="name" data-i18n="contact_label_name">Họ và tên</label>
+                                <input type="text" id="name" name="name" placeholder="Nguyễn Văn A"
+                                    data-i18n-placeholder="contact_placeholder_name" required />
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="hello@example.com" required />
+                                <label for="email" data-i18n="contact_label_email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="hello@example.com"
+                                    data-i18n-placeholder="contact_placeholder_email" required />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Tiêu đề</label>
-                            <input type="text" id="subject" name="subject" placeholder="Hợp tác dự án..." required />
+                            <label for="subject" data-i18n="contact_label_subject">Tiêu đề</label>
+                            <input type="text" id="subject" name="subject" placeholder="Hợp tác dự án..."
+                                data-i18n-placeholder="contact_placeholder_subject" required />
                         </div>
                         <div class="form-group">
-                            <label for="message">Nội dung</label>
+                            <label for="message" data-i18n="contact_label_message">Nội dung</label>
                             <textarea id="message" name="message" rows="5" placeholder="Xin chào Cường, tôi muốn..."
-                                required></textarea>
+                                data-i18n-placeholder="contact_placeholder_message" required></textarea>
                         </div>
                         <div class="form-group" style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
                             <!-- Đặt Site Key cục bộ (Test Key hoạt động cho mục đích thử nghiệm) -->
@@ -654,7 +682,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
                             <i class="fa-solid fa-paper-plane"></i>
-                            Gửi tin nhắn
+                            <span data-i18n="contact_btn_submit">Gửi tin nhắn</span>
                         </button>
                         <div id="formStatus" class="form-status"></div>
                     </form>
@@ -669,16 +697,16 @@
             <div class="footer-logo">
                 <span class="logo-bracket">&lt;</span>Võ Chí Cường<span class="logo-bracket">/&gt;</span>
             </div>
-            <p class="footer-quote">
+            <p class="footer-quote" data-i18n="footer_quote">
                 "Trong một thế giới đang thay đổi rất nhanh chóng, lộ trình duy nhất đưa bạn đến thất bại là không dám
                 mạo hiểm."
             </p>
-            <p class="footer-copy">© 2026 Võ Chí Cường. All rights reserved.</p>
+            <p class="footer-copy" data-i18n="footer_copy">© 2026 Võ Chí Cường. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Back to top button -->
-    <button id="backToTop" class="back-to-top" aria-label="Về đầu trang">
+    <button id="backToTop" class="back-to-top" aria-label="Về đầu trang" data-i18n-title="tooltip_back_to_top">
         <i class="fa-solid fa-chevron-up"></i>
     </button>
 
@@ -689,42 +717,43 @@
             <li>
                 <a href="#hero" class="bottom-nav-link active" id="bnHome">
                     <i class="fa-solid fa-house"></i>
-                    <span>Trang chủ</span>
+                    <span data-i18n="bottom_nav_home">Trang chủ</span>
                 </a>
             </li>
             <li>
                 <a href="#about" class="bottom-nav-link" id="bnAbout">
                     <i class="fa-solid fa-user"></i>
-                    <span>Về tôi</span>
+                    <span data-i18n="bottom_nav_about">Về tôi</span>
                 </a>
             </li>
             <li>
                 <a href="#skills" class="bottom-nav-link" id="bnSkills">
                     <i class="fa-solid fa-code"></i>
-                    <span>Kỹ năng</span>
+                    <span data-i18n="bottom_nav_skills">Kỹ năng</span>
                 </a>
             </li>
             <li>
                 <a href="#projects" class="bottom-nav-link" id="bnProjects">
                     <i class="fa-solid fa-rocket"></i>
-                    <span>Dự án</span>
+                    <span data-i18n="bottom_nav_projects">Dự án</span>
                 </a>
             </li>
             <li>
                 <a href="#freelance" class="bottom-nav-link" id="bnFreelance">
                     <i class="fa-solid fa-briefcase"></i>
-                    <span>Tự do</span>
+                    <span data-i18n="bottom_nav_freelance">Tự do</span>
                 </a>
             </li>
             <li>
                 <a href="#contact" class="bottom-nav-link" id="bnContact">
                     <i class="fa-solid fa-paper-plane"></i>
-                    <span>Liên hệ</span>
+                    <span data-i18n="bottom_nav_contact">Liên hệ</span>
                 </a>
             </li>
         </ul>
     </nav>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 
