@@ -54,10 +54,9 @@ const translations = {
         projects_title: "Dự án <span class=\"gradient-text\">nổi bật</span>",
         projects_sub: "Một số dự án tôi đã xây dựng và đang phát triển",
         
-        project_vfinance_title: "VFinance",
-        project_vfinance_desc: "Ứng dụng quản lý tài chính cá nhân đồng bộ trên Android & Wear OS (Galaxy Watch). Giao diện trực quan, đồng bộ dữ liệu thời gian thực, Widget & Complication/Tile cho Wear OS.",
-        project_vfinance_btn_wear: "Source WearOS",
-        project_vfinance_btn_android: "Source Android",
+        project_glance_title: "Glance",
+        project_glance_desc: "Ứng dụng Android giúp bảo vệ quyền riêng tư chống nhìn trộm (Anti-Shoulder-Surfing) sử dụng Flutter kết hợp với các dịch vụ hệ thống Native Android (Kotlin). Hỗ trợ lớp phủ bảo mật tùy biến và tối ưu hóa hiệu năng.",
+        project_glance_btn_source: "Source",
 
         project_xmnm_title: "Xe Máy Ngọc Mười",
         project_xmnm_desc: "Trang web chính thức (Landing page & Catalog) cho cửa hàng xe máy. SEO tối ưu, tốc độ cao, đa ngôn ngữ, UI/UX hiện đại.",
@@ -169,10 +168,9 @@ const translations = {
         projects_title: "Featured <span class=\"gradient-text\">Projects</span>",
         projects_sub: "Some projects I have built and am developing",
         
-        project_vfinance_title: "VFinance",
-        project_vfinance_desc: "Personal finance management application synchronized on Android & Wear OS (Galaxy Watch). Intuitive interface, real-time data sync, Widget & Complication/Tile for Wear OS.",
-        project_vfinance_btn_wear: "Source WearOS",
-        project_vfinance_btn_android: "Source Android",
+        project_glance_title: "Glance",
+        project_glance_desc: "An Android privacy protection overlay application (Anti-Shoulder-Surfing) built with Flutter and native Android services (Kotlin). Features a highly customizable privacy layer with smooth performance.",
+        project_glance_btn_source: "Source",
 
         project_xmnm_title: "Xe May Ngoc Muoi",
         project_xmnm_desc: "Official website (Landing page & Catalog) for a motorcycle store. Optimized SEO, high speed, multi-language support, modern UI/UX.",

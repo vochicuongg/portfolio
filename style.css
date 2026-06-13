@@ -1231,9 +1231,9 @@ textarea {
   transform: scale(1.05);
 }
 
-.project-img-placeholder.finance {
-  background: linear-gradient(135deg, #0a0f1e, #1a1050);
-  color: #6366f1;
+.project-img-placeholder.glance {
+  background: linear-gradient(135deg, #0b1a15, #112d1f);
+  color: #10b981;
 }
 
 .project-img-placeholder.bike {
@@ -1360,6 +1360,12 @@ textarea {
   background: rgba(255, 153, 0, 0.15);
   color: #ff9900;
   border-color: rgba(255, 153, 0, 0.3);
+}
+
+.badge.security {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
 .badge.html {
